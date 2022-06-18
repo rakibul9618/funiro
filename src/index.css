@@ -35,3 +35,28 @@ body {
   background: #e89f71;
   color: white;
 }
+
+.price-card {
+  display: none !important;
+}
+
+.slick-initialized .slick-active .price-card {
+  display: block !important;
+  animation: slide-fwd-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+  z-index: -1;
+}
+
+@keyframes slide-fwd-top {
+  0% {
+    transform: translateZ(0) translateY(0) translateX(0);
+    z-index: -1;
+  }
+  15% {
+    transform: translateZ(-160px) translateY(100px) translateX(-100px);
+    z-index: -1;
+  }
+  100% {
+    transform: translateZ(0) translateY(0) translateX(0);
+    z-index: 10;
+  }
+}

@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
-import { Box, Container } from '@mui/system';
+import { Box, Container } from '@mui/material';
 import Slider from 'react-slick';
 import { styled } from '@mui/material/styles';
+import { HeaderCard } from './HeaderCard';
+import { Colors } from '../../assets/theming';
+import PriceCard from './PriceCard';
 
 // mui icons
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // images
-import one from '../assets/images/header1.png';
-import two from '../assets/images/header2.png';
-import three from '../assets/images/header3.png';
-import { Colors } from '../assets/theming';
+import one from '../../assets/images/header1.png';
+import two from '../../assets/images/header2.png';
+import three from '../../assets/images/header3.png';
 
 const CustomBox = styled(Box)`
   & li {
@@ -131,7 +133,8 @@ const HeaderCarousel: React.FC = () => {
     className: vSlider ? 'slider variable-width' : '',
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 600,
+    autoplay: false,
     centerMode: vSlider ? true : false,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -194,74 +197,114 @@ const HeaderCarousel: React.FC = () => {
         paddingTop: '100px',
       }}
     >
-      <Box
-        component="div"
-        sx={{
-          marginLeft: {
-            md: '130px',
-            lg: '340px',
-            xl: '400px',
-            '2xl': '390px',
-          },
-        }}
-      >
-        <Slider {...settings}>
-          <Box component="div" sx={{}}>
+      <Box component="div" sx={{ position: 'relative' }}>
+        <Box
+          component="div"
+          sx={{
+            marginLeft: {
+              md: '130px',
+              lg: '340px',
+              xl: '400px',
+              '2xl': '390px',
+            },
+          }}
+        >
+          <Slider {...settings}>
             <Box
-              component="img"
-              src={one}
+              component="div"
               sx={{
-                height: {
-                  xs: 'auto',
-                  md: '340px',
-                  lg: '400px',
-                  xl: '480px',
-                  '2xl': '553px',
+                position: 'relative',
+                '&:focus-visible': {
+                  outline: 'none',
                 },
-                width: { xs: '100%', md: 'auto' },
-                mx: { xs: 0, md: 2 },
               }}
-              alt="picture of a sofa"
-            />
-          </Box>
-          <Box component="div" sx={{}}>
+            >
+              <Box
+                component="img"
+                src={one}
+                sx={{
+                  height: {
+                    xs: 'auto',
+                    md: '340px',
+                    lg: '400px',
+                    xl: '480px',
+                    '2xl': '553px',
+                  },
+                  width: { xs: '100%', md: 'auto' },
+                  mx: { xs: 0, md: 2 },
+                }}
+                alt="picture of a sofa"
+              />
+              <PriceCard text="big sofa" price="10.000.000" />
+            </Box>
             <Box
-              component="img"
-              src={two}
+              component="div"
               sx={{
-                height: {
-                  xs: 'auto',
-                  md: '340px',
-                  lg: '400px',
-                  xl: '480px',
-                  '2xl': '553px',
+                position: 'relative',
+                '&:focus-visible': {
+                  outline: 'none',
                 },
-                width: { xs: '100%', md: 'auto' },
-                mx: { xs: 0, md: 2 },
               }}
-              alt="picture of a sofa"
-            />
-          </Box>
+            >
+              <Box
+                component="img"
+                src={two}
+                sx={{
+                  height: {
+                    xs: 'auto',
+                    md: '340px',
+                    lg: '400px',
+                    xl: '480px',
+                    '2xl': '553px',
+                  },
+                  width: { xs: '100%', md: 'auto' },
+                  mx: { xs: 0, md: 2 },
+                }}
+                alt="picture of a sofa"
+              />
+              <PriceCard text="big sofa 2-seat" price="17.000.000" />
+            </Box>
 
-          <Box component="div" sx={{}}>
             <Box
-              component="img"
-              src={three}
+              component="div"
               sx={{
-                height: {
-                  xs: 'auto',
-                  md: '340px',
-                  lg: '400px',
-                  xl: '480px',
-                  '2xl': '553px',
+                position: 'relative',
+                '&:focus-visible': {
+                  outline: 'none',
                 },
-                width: { xs: '100%', md: 'auto' },
-                mx: { xs: 0, md: 2 },
               }}
-              alt="picture of a sofa"
-            />
-          </Box>
-        </Slider>
+            >
+              <Box
+                component="img"
+                src={three}
+                sx={{
+                  height: {
+                    xs: 'auto',
+                    md: '340px',
+                    lg: '400px',
+                    xl: '480px',
+                    '2xl': '553px',
+                  },
+                  width: { xs: '100%', md: 'auto' },
+                  mx: { xs: 0, md: 2 },
+                }}
+                alt="picture of a sofa"
+              />
+              <PriceCard text="big bed" price="30.000.000" />
+            </Box>
+          </Slider>
+        </Box>
+        <Box
+          component="div"
+          sx={{
+            py: { xs: '40px', md: 0 },
+            background: `linear-gradient(90deg, ${Colors.headBg1} 66.94%, ${Colors.headBg2} 33.06%)`,
+            zIndex: 100,
+            position: { xs: 'relative', md: 'static' },
+          }}
+        >
+          <HeaderCard />
+        </Box>
       </Box>
     </Container>
   );

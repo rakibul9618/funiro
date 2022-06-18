@@ -51,7 +51,8 @@ export const theme = createTheme({
     h1: {
       fontSize: '56px',
       fontWeight: '700',
-      '@media (max-width:600px)': {},
+      '@media (max-width:1399px)': {
+      },
     },
     h2: {
       fontSize: '40px',
@@ -81,7 +82,10 @@ export const theme = createTheme({
     subtitle1: {
       fontSize: '20px',
       fontWeight: '500',
-      '@media (max-width:600px)': {},
+      color: Colors.gray3,
+      '@media (max-width:1199px)': {
+        fontSize: '18px',
+      },
     },
     subtitle2: {
       fontSize: '16px',
